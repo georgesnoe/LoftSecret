@@ -1,4 +1,4 @@
-﻿@model Utilisateurs
+﻿@model SignupViewModel
 @{
     ViewData["Title"] = "Signup";
 }
@@ -10,7 +10,10 @@
 <!-- Body Start -->
 <main>
     <div class="container mx-auto px-4 flex justify-center items-center">
-        <form class="bg-gray-200 p-8 rounded-xl w-96" method="POST">
+        <form class="bg-gray-200 p-8 rounded-xl w-[40rem]" asp-action="Signup">
+            <div asp-validation-summary="All" id="error-dashboard"
+                class="text-red-400 fixed top-4 left-1/2 -translate-x-1/2 bg-blue-200 p-4 rounded-xl transition-opacity duration-[2000ms] opacity-0">
+            </div>
             <div>
                 <h1 class="font-bold text-3xl text-center">Inscription</h1>
             </div>
@@ -20,28 +23,39 @@
                     <label asp-for="Nom" class="p-4 bg-white rounded-xl">
                         <input type="text" asp-for="Nom" placeholder="Nom"
                             class="bg-transparent outline-none font-bold w-full" />
+                        <span asp-validation-for="Nom" class="block w-full text-red-400"></span>
                     </label>
                     <label asp-for="Prenoms" class="p-4 bg-white rounded-xl">
                         <input type="text" asp-for="Prenoms" placeholder="Prénom(s)"
                             class="bg-transparent outline-none font-bold w-full" />
+                        <span asp-validation-for="Prenoms" class="block w-full text-red-400"></span>
                     </label>
                 </div>
                 <label asp-for="Email" class="p-4 bg-white rounded-xl">
                     <input type="email" asp-for="Email" placeholder="Email"
                         class="bg-transparent outline-none font-bold w-full" />
+                    <span asp-validation-for="Email" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="Telephone" class="p-4 bg-white rounded-xl">
                     <input type="text" asp-for="Telephone" placeholder="Numéro de téléphone"
                         class="bg-transparent outline-none font-bold w-full" />
+                    <span asp-validation-for="Telephone" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="RoleId" class="p-4 bg-white rounded-xl">
-                    <select asp-for="RoleId" class="bg-transparent outline-none font-bold">
-                        <option value="">-- Sélectionner votre fonction --</option>
+                    <select asp-for="RoleId" class="bg-transparent outline-none font-bold w-full">
+                        <option value="0">-- Sélectionner votre fonction --</option>
                     </select>
+                    <span asp-validation-for="RoleId" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">
                     <input type="password" asp-for="MotDePasse" placeholder="Mot de passe"
                         class="bg-transparent outline-none font-bold w-full" />
+                    <span asp-validation-for="MotDePasse" class="block w-full text-red-400"></span>
+                </label>
+                <label asp-for="ConfirmerMotDePasse" class="p-4 bg-white rounded-xl">
+                    <input type="password" asp-for="ConfirmerMotDePasse" placeholder="Confirmer le mot de passe"
+                        class="bg-transparent outline-none font-bold w-full" />
+                    <span asp-validation-for="ConfirmerMotDePasse" class="block w-full text-red-400"></span>
                 </label>
             </div>
             <div class="h-8"></div>
@@ -61,3 +75,11 @@
     </div>
 </main>
 <!-- Body End -->
+
+<!-- Javascript Start -->
+<script>
+    setTimeout(() => {
+        document.querySelector("#error-dashboard").classList.add("hidden");
+    }, 3000);
+</script>
+<!-- Javascript End -->
