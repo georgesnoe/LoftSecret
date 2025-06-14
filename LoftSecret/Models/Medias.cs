@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Medias
 {
     public int? Id { get; set; }

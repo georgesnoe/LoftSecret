@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Reservations
 {
     public int Id { get; set; }

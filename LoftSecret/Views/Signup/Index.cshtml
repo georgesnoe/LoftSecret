@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LoftSecret.Models.Utilisateurs
+@{
     ViewData["Title"] = "Signup";
 }
 <!-- Header Start -->
@@ -40,30 +41,30 @@
             <div class="h-8"></div>
             <div class="flex flex-col space-y-8">
                 <div class="grid grid-cols-2 gap-2">
-                    <label for="nom" class="p-4 bg-white rounded-xl">
-                        <input type="text" id="nom" name="nom" placeholder="Nom" required
+                    <label asp-for="Nom" class="p-4 bg-white rounded-xl">
+                        <input type="text" asp-for="Nom" placeholder="Nom" required
                             class="bg-transparent outline-none font-bold w-full" />
                     </label>
-                    <label for="prenoms" class="p-4 bg-white rounded-xl">
-                        <input type="text" id="prenoms" name="prenoms" placeholder="Prénom(s)" required
+                    <label asp-for="Prenoms" class="p-4 bg-white rounded-xl">
+                        <input type="text" asp-for="Prenoms" placeholder="Prénom(s)" required
                             class="bg-transparent outline-none font-bold w-full" />
                     </label>
                 </div>
-                <label for="email" class="p-4 bg-white rounded-xl">
-                    <input type="email" id="email" name="email" placeholder="Email" required
+                <label asp-for="Email" class="p-4 bg-white rounded-xl">
+                    <input type="email" asp-for="Email" placeholder="Email" required
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
-                <label for="telephone" class="p-4 bg-white rounded-xl">
-                    <input type="text" id="telephone" name="telephone" placeholder="Numéro de téléphone" required
+                <label asp-for="Telephone" class="p-4 bg-white rounded-xl">
+                    <input type="text" asp-for="Telephone" placeholder="Numéro de téléphone" required
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
-                <label for="role" class="p-4 bg-white rounded-xl">
-                    <select id="role" name="role" required class="bg-transparent outline-none font-bold">
+                <label asp-for="RoleId" class="p-4 bg-white rounded-xl">
+                    <select asp-for="RoleId" required class="bg-transparent outline-none font-bold">
                         <option value="">-- Sélectionner votre fonction --</option>
                     </select>
                 </label>
-                <label for="password" class="p-4 bg-white rounded-xl">
-                    <input type="password" id="password" name="password" placeholder="Mot de passe" required
+                <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">
+                    <input type="password" asp-for="MotDePasse" placeholder="Mot de passe" required
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
             </div>

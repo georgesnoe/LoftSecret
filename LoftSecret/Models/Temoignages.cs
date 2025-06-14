@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Temoignages
 {
     public int? Id { get; set; }

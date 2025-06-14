@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Utilisateurs
 {
     public int? Id { get; set; }

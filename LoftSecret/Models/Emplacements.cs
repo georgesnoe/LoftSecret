@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Emplacements
 {
     public int? Id { get; set; }

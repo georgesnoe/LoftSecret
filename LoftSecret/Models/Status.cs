@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Status
 {
     public int? Id { get; set; }

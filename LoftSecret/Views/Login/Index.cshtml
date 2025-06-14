@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LoftSecret.Models.Utilisateurs
+@{
     ViewData["Title"] = "Login";
 }
 <!-- Header Start -->
@@ -39,12 +40,12 @@
             </div>
             <div class="h-8"></div>
             <div class="flex flex-col space-y-8">
-                <label for="email" class="p-4 bg-white rounded-xl">
-                    <input type="text" id="email" name="email" placeholder="Email" required
+                <label asp-for="Email" class="p-4 bg-white rounded-xl">
+                    <input type="text" asp-for="Email" placeholder="Email" required
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
-                <label for="password" class="p-4 bg-white rounded-xl">
-                    <input type="password" id="password" name="password" placeholder="Mot de passe" required
+                <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">
+                    <input type="password" asp-for="MotDePasse" placeholder="Mot de passe" required
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
             </div>

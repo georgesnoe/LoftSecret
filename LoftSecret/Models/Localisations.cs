@@ -1,3 +1,5 @@
+namespace LoftSecret.Models;
+
 public class Localisations
 {
     public int? Id { get; set; }
