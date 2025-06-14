@@ -13,6 +13,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStaticFiles("/fonts/GoogleSansText-Medium.ttf");
+
 app.UseHttpsRedirection();
 app.UseRouting();
 

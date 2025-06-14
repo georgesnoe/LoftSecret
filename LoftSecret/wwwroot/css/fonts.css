@@ -1,0 +1,58 @@
+﻿/* --- Regular Normal --- */
+@font-face {
+    font-family: "Google Sans Text";
+    /* Le nom que vous utiliserez dans votre CSS */
+    src: url('~/fonts/GoogleSansText-Regular.ttf') format('truetype');
+    font-weight: 400;
+    /* Correspond à 'normal' */
+    font-style: normal;
+    font-display: swap;
+    /* Optimisation pour le chargement des polices */
+}
+
+/* --- Regular Italic --- */
+@font-face {
+    font-family: "Google Sans Text";
+    src: url('~/fonts/GoogleSansText-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* --- Medium Normal --- */
+@font-face {
+    font-family: "Google Sans Text";
+    src: url('~/fonts/GoogleSansText-Medium.ttf') format('truetype');
+    font-weight: 500;
+    /* Poids pour 'medium' */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Medium Italic --- */
+@font-face {
+    font-family: "Google Sans Text";
+    src: url('~/fonts/GoogleSansText-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* --- Bold Normal --- */
+@font-face {
+    font-family: "Google Sans Text";
+    src: url('~/fonts/GoogleSansText-Bold.ttf') format('truetype');
+    font-weight: 700;
+    /* Correspond à 'bold' */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Bold Italic --- */
+@font-face {
+    font-family: "Google Sans Text";
+    src: url('~/fonts/GoogleSansText-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
