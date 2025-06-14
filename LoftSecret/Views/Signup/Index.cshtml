@@ -41,10 +41,21 @@
                         class="bg-transparent outline-none font-bold w-full" />
                     <span asp-validation-for="Telephone" class="block w-full text-red-400"></span>
                 </label>
-                <label asp-for="RoleId" class="p-4 bg-white rounded-xl">
-                    <select asp-for="RoleId" class="bg-transparent outline-none font-bold w-full">
-                        <option value="0">-- Sélectionner votre fonction --</option>
-                    </select>
+                <label class="flex flex-col p-4 bg-white rounded-xl">
+                    <div class="w-full">Qui êtes vous ?</div>
+                    <div class="h-2"></div>
+                    <div class="w-full flex items-center justify-center space-x-4">
+                        <label for="Propriétaire"
+                            class="w-full p-4 bg-gray-200 rounded-xl flex items-center justify-between">
+                            <p>Propriétaire</p>
+                            <input type="radio" id="Propriétaire" name="RoleId" value="1" />
+                        </label>
+                        <label for="Locataire"
+                            class="w-full p-4 bg-gray-200 rounded-xl flex items-center justify-between">
+                            <p>Locataire</p>
+                            <input type="radio" id="Locataire" name="RoleId" value="2" />
+                        </label>
+                    </div>
                     <span asp-validation-for="RoleId" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">

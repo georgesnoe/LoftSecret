@@ -16,7 +16,15 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        string? loginToken = HttpContext.Request.Cookies["loginToken"];
+        if (string.IsNullOrWhiteSpace(loginToken))
+        {
+            return View();
+        }
+        else
+        {
+            return Content("You are logged in");
+        }
     }
 
     public IActionResult Privacy()

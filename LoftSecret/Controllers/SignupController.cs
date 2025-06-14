@@ -25,7 +25,16 @@ namespace LoftSecret.Controllers
             {
                 return RedirectToAction("Verify", model);
             }
-            return RedirectToAction("Index");
+            else
+            {
+                var cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(7),
+                    HttpOnly = true
+                };
+                HttpContext.Response.Cookies.Append("loginToken", "abracadabra", cookieOptions);
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
