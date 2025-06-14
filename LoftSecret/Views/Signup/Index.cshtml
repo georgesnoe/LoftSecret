@@ -1,4 +1,4 @@
-﻿@model LoftSecret.Models.Utilisateurs
+﻿@model Utilisateurs
 @{
     ViewData["Title"] = "Signup";
 }
@@ -42,29 +42,29 @@
             <div class="flex flex-col space-y-8">
                 <div class="grid grid-cols-2 gap-2">
                     <label asp-for="Nom" class="p-4 bg-white rounded-xl">
-                        <input type="text" asp-for="Nom" placeholder="Nom" required
+                        <input type="text" asp-for="Nom" placeholder="Nom"
                             class="bg-transparent outline-none font-bold w-full" />
                     </label>
                     <label asp-for="Prenoms" class="p-4 bg-white rounded-xl">
-                        <input type="text" asp-for="Prenoms" placeholder="Prénom(s)" required
+                        <input type="text" asp-for="Prenoms" placeholder="Prénom(s)"
                             class="bg-transparent outline-none font-bold w-full" />
                     </label>
                 </div>
                 <label asp-for="Email" class="p-4 bg-white rounded-xl">
-                    <input type="email" asp-for="Email" placeholder="Email" required
+                    <input type="email" asp-for="Email" placeholder="Email"
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
                 <label asp-for="Telephone" class="p-4 bg-white rounded-xl">
-                    <input type="text" asp-for="Telephone" placeholder="Numéro de téléphone" required
+                    <input type="text" asp-for="Telephone" placeholder="Numéro de téléphone"
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
                 <label asp-for="RoleId" class="p-4 bg-white rounded-xl">
-                    <select asp-for="RoleId" required class="bg-transparent outline-none font-bold">
+                    <select asp-for="RoleId" class="bg-transparent outline-none font-bold">
                         <option value="">-- Sélectionner votre fonction --</option>
                     </select>
                 </label>
                 <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">
-                    <input type="password" asp-for="MotDePasse" placeholder="Mot de passe" required
+                    <input type="password" asp-for="MotDePasse" placeholder="Mot de passe"
                         class="bg-transparent outline-none font-bold w-full" />
                 </label>
             </div>

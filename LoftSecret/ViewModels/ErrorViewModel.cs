@@ -1,4 +1,4 @@
-namespace LoftSecret.Models;
+namespace LoftSecret.ViewModels;
 
 public class ErrorViewModel
 {

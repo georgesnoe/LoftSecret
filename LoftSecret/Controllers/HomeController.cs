@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using LoftSecret.Models;
+using LoftSecret.ViewModels;
 
 namespace LoftSecret.Controllers;
 
