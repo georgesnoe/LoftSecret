@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Signup";
+}
+<!-- Header Start -->
+<header class="fixed top-0 left-0 w-full bg-white">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div>
+            <p class="font-bold text-xl">Loft Secret</p>
+        </div>
+        <div>
+            <div class="flex items-center space-x-4">
+                <a asp-controller="Login" asp-action="Index">
+                    <div
+                        class="font-bold p-4 text-blue-500 hover:text-gray-100 hover:bg-blue-400 transition-colors duration-300 rounded-full">
+                        Se connecter
+                    </div>
+                </a>
+                <a asp-controller="Signup" asp-action="Index">
+                    <div
+                        class="font-bold bg-blue-300 hover:bg-blue-400 transition-colors duration-300 p-4 rounded-full">
+                        S'inscrire
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</header>
+<div class="h-16"></div>
+<div class="h-8"></div>
+<!-- Header End -->
+
+<!-- Body Start -->
+<main>
+    <div class="container mx-auto px-4 flex justify-center items-center">
+        <form class="bg-gray-200 p-8 rounded-xl w-96" method="POST">
+            <div>
+                <h1 class="font-bold text-3xl text-center">Inscription</h1>
+            </div>
+            <div class="h-8"></div>
+            <div class="flex flex-col space-y-8">
+                <div class="grid grid-cols-2 gap-2">
+                    <label for="nom" class="p-4 bg-white rounded-xl">
+                        <input type="text" id="nom" name="nom" placeholder="Nom" required
+                            class="bg-transparent outline-none font-bold" />
+                    </label>
+                    <label for="prenoms" class="p-4 bg-white rounded-xl">
+                        <input type="text" id="prenoms" name="prenoms" placeholder="Prénom(s)" required
+                            class="bg-transparent outline-none font-bold" />
+                    </label>
+                </div>
+                <label for="email" class="p-4 bg-white rounded-xl">
+                    <input type="email" id="email" name="email" placeholder="Email" required
+                        class="bg-transparent outline-none font-bold" />
+                </label>
+                <label for="telephone" class="p-4 bg-white rounded-xl">
+                    <input type="text" id="telephone" name="telephone" placeholder="Numéro de téléphone" required
+                        class="bg-transparent outline-none font-bold" />
+                </label>
+                <label for="role" class="p-4 bg-white rounded-xl">
+                    <select id="role" name="role" required class="bg-transparent outline-none font-bold">
+                        <option value="">-- Sélectionner votre fonction --</option>
+                    </select>
+                </label>
+                <label for="password" class="p-4 bg-white rounded-xl">
+                    <input type="password" id="password" name="password" placeholder="Mot de passe" required
+                        class="bg-transparent outline-none font-bold" />
+                </label>
+            </div>
+            <div class="h-8"></div>
+            <div class="flex justify-center items-center">
+                <button
+                    class="bg-blue-400 hover:bg-blue-500 hover:rounded-full transition-all duration-300 w-full p-4 rounded-xl font-bold">Se
+                    connecter</button>
+            </div>
+            <div class="h-8"></div>
+            <div>
+                <p class="text-sm text-right">Vous avez déjà un compte ? <br>
+                    <a asp-controller="Login" asp-action="Index"><span
+                            class="text-blue-500 font-bold underline">Connectez-vous</span></a>
+                </p>
+            </div>
+        </form>
+    </div>
+</main>
+<!-- Body End -->
