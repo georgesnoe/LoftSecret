@@ -1,6 +1,7 @@
 using MySql.Data.MySqlClient;
 
 using LoftSecret.Models;
+using System.Text.RegularExpressions;
 
 namespace LoftSecret.Database;
 
@@ -29,8 +30,9 @@ public class UtilisateursDb
                 }
                 catch (MySqlException e)
                 {
+                    /* Email Duplicate here */
                     Console.WriteLine(e.Message);
-                    returnValue = 0;
+                    returnValue = Database.SQL_EMAIL_DUPLICATE;
                 }
                 return returnValue;
             }

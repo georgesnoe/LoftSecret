@@ -16,6 +16,7 @@ public class SignupViewModel
     public required string Telephone { get; set; }
 
     [Required(ErrorMessage = "Veuillez spécifier votre adresse email")]
+    [DeniedValues([Database.Database.SQL_EMAIL_DUPLICATE_STR], ErrorMessage = "Cette adresse email existe déjà")]
     [EmailAddress]
     public required string Email { get; set; }
 

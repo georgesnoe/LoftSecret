@@ -37,11 +37,11 @@ namespace LoftSecret.Controllers
                     Prenoms = model.Prenoms,
                     Telephone = model.Telephone,
                     RoleId = model.RoleId
-                }) == 0)
+                }) == Database.Database.SQL_EMAIL_DUPLICATE)
                 {
                     // If there is already an email, it returns 0
                     var emailExistsModel = model;
-                    emailExistsModel.Email = "Cet email existe déjà";
+                    emailExistsModel.Email = Database.Database.SQL_EMAIL_DUPLICATE_STR;
                     return RedirectToAction("Verify", emailExistsModel);
                 }
                 var cookieOptions = new CookieOptions
