@@ -12,7 +12,7 @@ public class SignupViewModel
 
     [Required(ErrorMessage = "Veuillez spécifier votre numéro de téléphone")]
     [Phone(ErrorMessage = "Veuillez respecter le format des numéros de téléphone")]
-    [Length(8, 10, ErrorMessage = "Veuillez respecter le format des numéros de téléphone")]
+    [Length(8, 20, ErrorMessage = "Veuillez respecter le format des numéros de téléphone")]
     public required string Telephone { get; set; }
 
     [Required(ErrorMessage = "Veuillez spécifier votre adresse email")]
@@ -20,7 +20,7 @@ public class SignupViewModel
     public required string Email { get; set; }
 
     [Required(ErrorMessage = "Veuillez préciser votre role")]
-    [AllowedValues([1, 2, 3, 4], ErrorMessage = "Veuillez choisir votre role")]
+    [AllowedValues([1, 2], ErrorMessage = "Veuillez choisir votre role")]
     public int RoleId { get; set; }
 
     [Required(ErrorMessage = "Veuillez spécifier votre mot de passe")]

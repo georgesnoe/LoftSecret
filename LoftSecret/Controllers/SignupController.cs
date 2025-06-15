@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using LoftSecret.ViewModels;
 using Microsoft.AspNetCore.Mvc.Routing;
+using LoftSecret.Database;
+using LoftSecret.Models;
 
 namespace LoftSecret.Controllers
 {
@@ -19,7 +21,7 @@ namespace LoftSecret.Controllers
 
         // POST: /Signup/Signup
         [HttpPost]
-        public IActionResult Signup(SignupViewModel model)
+        public async Task<IActionResult> Signup(SignupViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -27,6 +29,15 @@ namespace LoftSecret.Controllers
             }
             else
             {
+                await UtilisateursDb.AddUtilisateur(new Utilisateurs
+                {
+                    Email = model.Email,
+                    MotDePasse = model.MotDePasse,
+                    Nom = model.Nom,
+                    Prenoms = model.Prenoms,
+                    Telephone = model.Telephone,
+                    RoleId = model.RoleId
+                });
                 var cookieOptions = new CookieOptions
                 {
                     Expires = DateTime.Now.AddDays(7),
