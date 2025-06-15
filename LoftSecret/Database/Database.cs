@@ -6,8 +6,14 @@ namespace LoftSecret.Database;
 public class Database
 {
     /* Constants to easily manages sql errors */
+    // Email is duplicated
     public const int SQL_EMAIL_DUPLICATE = 345647982;
     public const string SQL_EMAIL_DUPLICATE_STR = "Adresse email déjà existante";
+
+    // Email not exists
+    public const int SQL_EMAIL_NOT_EXISTS = 345647983;
+    public const string SQL_EMAIL_NOT_EXISTS_STR = "Adresse email non existante";
+
 
     /* MySql Database configuration */
 

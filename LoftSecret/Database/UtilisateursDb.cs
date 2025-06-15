@@ -1,7 +1,6 @@
 using MySql.Data.MySqlClient;
-
+using System.Data;
 using LoftSecret.Models;
-using System.Text.RegularExpressions;
 
 namespace LoftSecret.Database;
 
@@ -37,5 +36,44 @@ public class UtilisateursDb
                 return returnValue;
             }
         }
+    }
+
+    public static async Task<Utilisateurs?> FindUtilisateurByEmail(string email)
+    {
+        using (var connection = new MySqlConnection(Database.__connectionString))
+        {
+            await connection.OpenAsync();
+            string query = "SELECT * FROM utilisateurs WHERE email = @email";
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@email", email);
+                try
+                {
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            return new Utilisateurs
+                            {
+                                Id = reader.GetInt32("id"),
+                                Nom = reader.GetString("nom"),
+                                Prenoms = reader.GetString("prenoms"),
+                                Telephone = reader.GetString("telephone"),
+                                Email = reader.GetString("email"),
+                                DateInscription = reader.GetDateTime("date_inscription"),
+                                MotDePasse = reader.GetString("mot_de_passe"),
+                                RoleId = reader.GetInt32("role_id")
+                            };
+                        }
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    /* Email Duplicate here */
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+        return null;
     }
 }
