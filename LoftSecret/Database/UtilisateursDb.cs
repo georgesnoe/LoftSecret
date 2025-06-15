@@ -7,7 +7,7 @@ namespace LoftSecret.Database;
 public class UtilisateursDb
 {
     /* Add an user into the database with its informations */
-    public static async Task AddUtilisateur(Utilisateurs utilisateur)
+    public static async Task<Int32> AddUtilisateur(Utilisateurs utilisateur)
     {
         using (var connection = new MySqlConnection(InitDatabase.__connectionString))
         {
@@ -21,6 +21,7 @@ public class UtilisateursDb
                 command.Parameters.AddWithValue("@email", utilisateur.Email);
                 command.Parameters.AddWithValue("@mot_de_passe", utilisateur.MotDePasse);
                 command.Parameters.AddWithValue("@role_id", utilisateur.RoleId);
+                return await command.ExecuteNonQueryAsync();
             }
         }
     }
