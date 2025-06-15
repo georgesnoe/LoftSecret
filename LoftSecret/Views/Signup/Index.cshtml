@@ -19,53 +19,54 @@
             </div>
             <div class="h-8"></div>
             <div class="flex flex-col space-y-8">
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <label asp-for="Nom" class="p-4 bg-white rounded-xl">
                         <input type="text" asp-for="Nom" placeholder="Nom"
-                            class="bg-transparent outline-none font-bold w-full" />
+                            class="bg-transparent outline-none font-bold w-full" required />
                         <span asp-validation-for="Nom" class="block w-full text-red-400"></span>
                     </label>
                     <label asp-for="Prenoms" class="p-4 bg-white rounded-xl">
                         <input type="text" asp-for="Prenoms" placeholder="Prénom(s)"
-                            class="bg-transparent outline-none font-bold w-full" />
+                            class="bg-transparent outline-none font-bold w-full" required />
                         <span asp-validation-for="Prenoms" class="block w-full text-red-400"></span>
                     </label>
                 </div>
                 <label asp-for="Email" class="p-4 bg-white rounded-xl">
                     <input type="email" asp-for="Email" placeholder="Email"
-                        class="bg-transparent outline-none font-bold w-full" />
+                        class="bg-transparent outline-none font-bold w-full" required />
                     <span asp-validation-for="Email" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="Telephone" class="p-4 bg-white rounded-xl">
-                    <input type="text" asp-for="Telephone" placeholder="Numéro de téléphone"
-                        class="bg-transparent outline-none font-bold w-full" />
+                    <input type="text" asp-for="Telephone" minlength="8" placeholder="Numéro de téléphone"
+                        class="bg-transparent outline-none font-bold w-full" required />
                     <span asp-validation-for="Telephone" class="block w-full text-red-400"></span>
                 </label>
                 <label class="flex flex-col p-4 bg-white rounded-xl">
                     <div class="w-full">Qui êtes vous ?</div>
                     <div class="h-2"></div>
-                    <div class="w-full flex items-center justify-center space-x-4">
+                    <div class="w-full flex flex-col sm:flex-row items-center justify-center space-x-4">
                         <label for="Propriétaire"
                             class="w-full p-4 bg-gray-200 rounded-xl flex items-center justify-between">
                             <p>Propriétaire</p>
-                            <input type="radio" id="Propriétaire" name="RoleId" value="1" />
+                            <input type="radio" id="Propriétaire" name="RoleId" value="1" required />
                         </label>
                         <label for="Locataire"
                             class="w-full p-4 bg-gray-200 rounded-xl flex items-center justify-between">
                             <p>Locataire</p>
-                            <input type="radio" id="Locataire" name="RoleId" value="2" />
+                            <input type="radio" id="Locataire" name="RoleId" value="2" required />
                         </label>
                     </div>
                     <span asp-validation-for="RoleId" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">
-                    <input type="password" asp-for="MotDePasse" placeholder="Mot de passe"
-                        class="bg-transparent outline-none font-bold w-full" />
+                    <input type="password" minlength="8" maxlength="30" asp-for="MotDePasse" placeholder="Mot de passe"
+                        class="bg-transparent outline-none font-bold w-full" required />
                     <span asp-validation-for="MotDePasse" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="ConfirmerMotDePasse" class="p-4 bg-white rounded-xl">
-                    <input type="password" asp-for="ConfirmerMotDePasse" placeholder="Confirmer le mot de passe"
-                        class="bg-transparent outline-none font-bold w-full" />
+                    <input type="password" minlength="8" maxlength="30" asp-for="ConfirmerMotDePasse"
+                        placeholder="Confirmer le mot de passe" class="bg-transparent outline-none font-bold w-full"
+                        required />
                     <span asp-validation-for="ConfirmerMotDePasse" class="block w-full text-red-400"></span>
                 </label>
             </div>

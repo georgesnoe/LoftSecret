@@ -20,13 +20,13 @@
             <div class="h-8"></div>
             <div class="flex flex-col space-y-8">
                 <label asp-for="Email" class="p-4 bg-white rounded-xl">
-                    <input type="text" asp-for="Email" placeholder="Email"
-                        class="bg-transparent outline-none font-bold w-full" />
+                    <input type="email" asp-for="Email" placeholder="Email"
+                        class="bg-transparent outline-none font-bold w-full" required />
                     <span asp-validation-for="Email" class="block w-full text-red-400"></span>
                 </label>
                 <label asp-for="MotDePasse" class="p-4 bg-white rounded-xl">
-                    <input type="password" asp-for="MotDePasse" placeholder="Mot de passe"
-                        class="bg-transparent outline-none font-bold w-full" />
+                    <input type="password" minlength="8" maxlength="30" asp-for="MotDePasse" placeholder="Mot de passe"
+                        class="bg-transparent outline-none font-bold w-full" required />
                     <span asp-validation-for="MotDePasse" class="block w-full text-red-400"></span>
                 </label>
             </div>
