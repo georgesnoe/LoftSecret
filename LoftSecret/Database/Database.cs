@@ -14,6 +14,10 @@ public class Database
     public const int SQL_EMAIL_NOT_EXISTS = 345647983;
     public const string SQL_EMAIL_NOT_EXISTS_STR = "Adresse email non existante";
 
+    // Password Error
+    public const int SQL_PASSWORD_ERROR = 345647984;
+    public const string SQL_PASSWORD_ERROR_STR = "Mot de passe incorrect";
+
 
     /* MySql Database configuration */
 

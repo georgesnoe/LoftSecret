@@ -18,7 +18,7 @@ namespace LoftSecret.Controllers
 
         // POST: /Login/Login
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -26,13 +26,33 @@ namespace LoftSecret.Controllers
             }
             else
             {
-                var cookieOptions = new CookieOptions
+                var utilisateur = await Database.UtilisateursDb.FindUtilisateurByEmail(model.Email);
+                if (utilisateur == null)
                 {
-                    Expires = DateTime.Now.AddDays(7),
-                    HttpOnly = true
-                };
-                HttpContext.Response.Cookies.Append("loginToken", "abracadabra", cookieOptions);
-                return RedirectToAction("Index", "Home");
+                    var emailNotExistsModel = model;
+                    emailNotExistsModel.Email = Database.Database.SQL_EMAIL_NOT_EXISTS_STR;
+                    return RedirectToAction("Verify", model);
+                }
+                else
+                {
+                    var password = model.MotDePasse;
+                    if (Database.Database.HashPassword(password) == utilisateur.MotDePasse)
+                    {
+                        var cookieOptions = new CookieOptions
+                        {
+                            Expires = DateTime.Now.AddDays(7),
+                            HttpOnly = true
+                        };
+                        HttpContext.Response.Cookies.Append("loginToken", "abracadabra", cookieOptions);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        var passwordErrorModel = model;
+                        passwordErrorModel.MotDePasse = Database.Database.SQL_PASSWORD_ERROR_STR;
+                        return RedirectToAction("Verify", model);
+                    }
+                }
             }
         }
     }
