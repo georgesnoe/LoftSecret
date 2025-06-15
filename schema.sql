@@ -34,7 +34,6 @@ CREATE TABLE utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(64) NOT NULL,
     prenoms VARCHAR(64) NOT NULL,
-    -- date_de_naissance TIMESTAMP NULL,
     telephone VARCHAR(16) NOT NULL,
     email VARCHAR(64) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(128) NOT NULL,
@@ -66,8 +65,8 @@ CREATE TABLE emplacement (
 -- =================================================================
 CREATE TABLE reservation (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    debut_reservation TIMESTAMP NOT NULL,
-    fin_reservation TIMESTAMP NOT NULL,
+    debut_reservation DATETIME NOT NULL,
+    fin_reservation DATETIME NOT NULL,
     utilisateur_id INT NOT NULL,
     emplacement_id INT NOT NULL,
     status_id INT NOT NULL,
@@ -95,7 +94,7 @@ CREATE TABLE temoignages (
     id INT PRIMARY KEY AUTO_INCREMENT,
     texte TEXT,
     vote INT,
-    date TIMESTAMP NOT NULL,
+    date DATETIME NOT NULL,
     utilisateur_id INT NOT NULL,
     emplacement_id INT NOT NULL,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id),
