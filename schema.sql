@@ -55,6 +55,7 @@ CREATE TABLE emplacement (
     prix INT NOT NULL,
     localisation_id INT NOT NULL,
     utilisateur_id INT NOT NULL,
+    date_ajout DATETIME NOT NULL,
     FOREIGN KEY (localisation_id) REFERENCES localisations(id),
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id)
 );
