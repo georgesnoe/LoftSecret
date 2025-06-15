@@ -94,7 +94,7 @@ CREATE TABLE temoignages (
     id INT PRIMARY KEY AUTO_INCREMENT,
     texte TEXT,
     vote INT,
-    date DATETIME NOT NULL,
+    date_vote DATETIME NOT NULL,
     utilisateur_id INT NOT NULL,
     emplacement_id INT NOT NULL,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id),
