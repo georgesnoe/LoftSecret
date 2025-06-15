@@ -1,3 +1,6 @@
+using System.Text;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+
 namespace LoftSecret.Database;
 
 public class Database
@@ -28,4 +31,24 @@ public class Database
 
     /* Resulting string */
     public const string __connectionString = $"Server={__dbServer};Port={__dbPort};Database={__dbName};Uid={__dbUser};Pwd={__dbPasswd}";
+
+    // Salt to hash passwords
+    private const string __salt = "CGYzqeN4plZekNC88Umm1Q==";
+
+    // Hash iteration count
+    private const int __hashIterationCount = 10;
+
+    // Static methods to hash passwords
+    public static string HashPassword(string password)
+    {
+        return Convert.ToBase64String(
+            KeyDerivation.Pbkdf2(
+                password: password,
+                salt: Encoding.ASCII.GetBytes(__salt),
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: __hashIterationCount,
+                numBytesRequested: 256 / 8
+            )
+        );
+    }
 }

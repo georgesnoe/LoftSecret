@@ -32,7 +32,8 @@ namespace LoftSecret.Controllers
                 if (await UtilisateursDb.AddUtilisateur(new Utilisateurs
                 {
                     Email = model.Email,
-                    MotDePasse = model.MotDePasse,
+                    // Using hashed password
+                    MotDePasse = Database.Database.HashPassword(model.MotDePasse),
                     Nom = model.Nom,
                     Prenoms = model.Prenoms,
                     Telephone = model.Telephone,
