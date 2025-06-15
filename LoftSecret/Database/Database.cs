@@ -1,6 +1,6 @@
 namespace LoftSecret.Database;
 
-public class InitDatabase
+public class Database
 {
     /* MySql Database configuration */
 
