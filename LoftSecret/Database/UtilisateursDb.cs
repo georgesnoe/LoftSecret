@@ -21,7 +21,18 @@ public class UtilisateursDb
                 command.Parameters.AddWithValue("@email", utilisateur.Email);
                 command.Parameters.AddWithValue("@mot_de_passe", utilisateur.MotDePasse);
                 command.Parameters.AddWithValue("@role_id", utilisateur.RoleId);
-                return await command.ExecuteNonQueryAsync();
+
+                Int32 returnValue;
+                try
+                {
+                    returnValue = await command.ExecuteNonQueryAsync();
+                }
+                catch (MySqlException e)
+                {
+                    Console.WriteLine(e.Message);
+                    returnValue = 0;
+                }
+                return returnValue;
             }
         }
     }

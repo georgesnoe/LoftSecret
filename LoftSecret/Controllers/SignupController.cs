@@ -29,7 +29,7 @@ namespace LoftSecret.Controllers
             }
             else
             {
-                await UtilisateursDb.AddUtilisateur(new Utilisateurs
+                if (await UtilisateursDb.AddUtilisateur(new Utilisateurs
                 {
                     Email = model.Email,
                     MotDePasse = model.MotDePasse,
@@ -37,7 +37,13 @@ namespace LoftSecret.Controllers
                     Prenoms = model.Prenoms,
                     Telephone = model.Telephone,
                     RoleId = model.RoleId
-                });
+                }) == 0)
+                {
+                    // If there is already an email, it returns 0
+                    var emailExistsModel = model;
+                    emailExistsModel.Email = "Cet email existe déjà";
+                    return RedirectToAction("Verify", emailExistsModel);
+                }
                 var cookieOptions = new CookieOptions
                 {
                     Expires = DateTime.Now.AddDays(7),
