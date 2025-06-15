@@ -12,7 +12,7 @@ public class Database
 
     // Email not exists
     public const int SQL_EMAIL_NOT_EXISTS = 345647983;
-    public const string SQL_EMAIL_NOT_EXISTS_STR = "Adresse email non existante";
+    public const string SQL_EMAIL_NOT_EXISTS_STR = "error@email";
 
     // Password Error
     public const int SQL_PASSWORD_ERROR = 345647984;
