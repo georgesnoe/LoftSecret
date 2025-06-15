@@ -2,6 +2,9 @@ namespace LoftSecret.Database;
 
 public class Database
 {
+    /* Constants to easily manages sql errors */
+    public static readonly int SQL_EMAIL_DUPLICATE = 345647982;
+
     /* MySql Database configuration */
 
     /* Database server or provider */
