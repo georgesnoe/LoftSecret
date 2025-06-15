@@ -9,5 +9,5 @@ public class Reservations
     // --- Foreign Keys ---
     public int UtilisateurId { get; set; }
     public int EmplacementId { get; set; }
-    public int StatusId { get; set; }
+    public int EtatId { get; set; }
 }
