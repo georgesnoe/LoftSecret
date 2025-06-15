@@ -7,7 +7,8 @@ public class Emplacements
     public required string Description { get; set; }
     public int? Superficie { get; set; }
     public required int CapaciteMax { get; set; }
-    public int Prix { get; set; }
+    public required int Prix { get; set; }
+    public DateTimeOffset date_ajout { get; set; }
 
     // --- Foreign Keys ---
     public int LocalisationId { get; set; }

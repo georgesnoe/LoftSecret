@@ -53,9 +53,9 @@ CREATE TABLE emplacements (
     superficie INT,
     capacite_max INT,
     prix INT NOT NULL,
+    date_ajout DATETIME DEFAULT NOW() NOT NULL,
     localisation_id INT NOT NULL,
     utilisateur_id INT NOT NULL,
-    date_ajout DATETIME DEFAULT NOW() NOT NULL,
     FOREIGN KEY (localisation_id) REFERENCES localisations(id),
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id)
 );
