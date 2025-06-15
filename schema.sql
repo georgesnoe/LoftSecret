@@ -37,7 +37,7 @@ CREATE TABLE utilisateurs (
     telephone VARCHAR(16) NOT NULL,
     email VARCHAR(64) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(128) NOT NULL,
-    date_inscription DATETIME NOT NULL,
+    date_inscription DATETIME DEFAULT NOW() NOT NULL,
     role_id INT NOT NULL,
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
@@ -55,7 +55,7 @@ CREATE TABLE emplacement (
     prix INT NOT NULL,
     localisation_id INT NOT NULL,
     utilisateur_id INT NOT NULL,
-    date_ajout DATETIME NOT NULL,
+    date_ajout DATETIME DEFAULT NOW() NOT NULL,
     FOREIGN KEY (localisation_id) REFERENCES localisations(id),
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id)
 );
@@ -66,7 +66,7 @@ CREATE TABLE emplacement (
 -- =================================================================
 CREATE TABLE reservation (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    date_reservation DATETIME NOT NULL,
+    date_reservation DATETIME DEFAULT NOW() NOT NULL,
     debut_reservation DATETIME NOT NULL,
     fin_reservation DATETIME NOT NULL,
     utilisateur_id INT NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE temoignages (
     id INT PRIMARY KEY AUTO_INCREMENT,
     texte TEXT,
     vote INT,
-    date_vote DATETIME NOT NULL,
+    date_vote DATETIME DEFAULT NOW() NOT NULL,
     utilisateur_id INT NOT NULL,
     emplacement_id INT NOT NULL,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id),
