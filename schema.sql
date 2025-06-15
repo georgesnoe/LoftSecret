@@ -11,7 +11,7 @@ CREATE TABLE roles (
 -- Table for Reservation Statuses
 -- Stores possible states for a reservation (e.g., pending, confirmed).
 -- =================================================================
-CREATE TABLE status (
+CREATE TABLE etats (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(32) NOT NULL UNIQUE
 );
@@ -71,10 +71,10 @@ CREATE TABLE reservation (
     fin_reservation DATETIME NOT NULL,
     utilisateur_id INT NOT NULL,
     emplacement_id INT NOT NULL,
-    status_id INT NOT NULL,
+    etat_id INT NOT NULL,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id),
     FOREIGN KEY (emplacement_id) REFERENCES emplacements(id),
-    FOREIGN KEY (status_id) REFERENCES status(id)
+    FOREIGN KEY (etat_id) REFERENCES etats(id)
 );
 
 -- =================================================================
