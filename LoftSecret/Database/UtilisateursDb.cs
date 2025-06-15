@@ -9,7 +9,7 @@ public class UtilisateursDb
     /* Add an user into the database with its informations */
     public static async Task<Int32> AddUtilisateur(Utilisateurs utilisateur)
     {
-        using (var connection = new MySqlConnection(InitDatabase.__connectionString))
+        using (var connection = new MySqlConnection(Database.__connectionString))
         {
             await connection.OpenAsync();
             string query = "INSERT INTO utilisateurs (nom, prenoms, telephone, email, mot_de_passe, role_id) VALUES (@nom, @prenoms, @telephone, @email, @mot_de_passe, @role_id)";
