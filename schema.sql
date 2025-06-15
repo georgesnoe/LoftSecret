@@ -46,7 +46,7 @@ CREATE TABLE utilisateurs (
 -- Table for Rental Locations/Emplacements
 -- The central table for properties that can be rented.
 -- =================================================================
-CREATE TABLE emplacement (
+CREATE TABLE emplacements (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100) NOT NULL,
     description TEXT,
@@ -64,7 +64,7 @@ CREATE TABLE emplacement (
 -- Table for Reservations
 -- Connects users to the locations they book.
 -- =================================================================
-CREATE TABLE reservation (
+CREATE TABLE reservations (
     id INT PRIMARY KEY AUTO_INCREMENT,
     date_reservation DATETIME DEFAULT NOW() NOT NULL,
     debut_reservation DATETIME NOT NULL,
