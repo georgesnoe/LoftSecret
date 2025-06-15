@@ -66,6 +66,7 @@ CREATE TABLE emplacement (
 -- =================================================================
 CREATE TABLE reservation (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    date_reservation DATETIME NOT NULL,
     debut_reservation DATETIME NOT NULL,
     fin_reservation DATETIME NOT NULL,
     utilisateur_id INT NOT NULL,
