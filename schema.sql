@@ -2,7 +2,7 @@
 -- Table for User Roles
 -- Stores different types of users (e.g., client, proprietary, admin).
 -- =================================================================
-CREATE TABLE roles IF NOT EXISTS (
+CREATE TABLE roles (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(32) NOT NULL UNIQUE
 );
@@ -11,7 +11,7 @@ CREATE TABLE roles IF NOT EXISTS (
 -- Table for Reservation Statuses
 -- Stores possible states for a reservation (e.g., pending, confirmed).
 -- =================================================================
-CREATE TABLE status IF NOT EXISTS (
+CREATE TABLE status (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(32) NOT NULL UNIQUE
 );
@@ -20,7 +20,7 @@ CREATE TABLE status IF NOT EXISTS (
 -- Table for Physical Locations
 -- Stores address and geographic information.
 -- =================================================================
-CREATE TABLE localisations IF NOT EXISTS (
+CREATE TABLE localisations (
     id INT PRIMARY KEY AUTO_INCREMENT,
     description TEXT NOT NULL,
     adresse_google_maps TEXT
@@ -30,15 +30,15 @@ CREATE TABLE localisations IF NOT EXISTS (
 -- Table for Users
 -- Stores user account information.
 -- =================================================================
-CREATE TABLE utilisateurs IF NOT EXISTS (
+CREATE TABLE utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(64) NOT NULL,
     prenoms VARCHAR(64) NOT NULL,
     -- date_de_naissance TIMESTAMP NULL,
-    telephone VARCHAR(16),
+    telephone VARCHAR(16) NOT NULL,
     email VARCHAR(64) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(128) NOT NULL,
-    date_inscription TIMESTAMP NOT NULL,
+    date_inscription DATETIME NOT NULL,
     role_id INT NOT NULL,
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
@@ -47,7 +47,7 @@ CREATE TABLE utilisateurs IF NOT EXISTS (
 -- Table for Rental Locations/Emplacements
 -- The central table for properties that can be rented.
 -- =================================================================
-CREATE TABLE emplacement IF NOT EXISTS (
+CREATE TABLE emplacement (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100) NOT NULL,
     description TEXT,
@@ -64,7 +64,7 @@ CREATE TABLE emplacement IF NOT EXISTS (
 -- Table for Reservations
 -- Connects users to the locations they book.
 -- =================================================================
-CREATE TABLE reservation IF NOT EXISTS (
+CREATE TABLE reservation (
     id INT PRIMARY KEY AUTO_INCREMENT,
     debut_reservation TIMESTAMP NOT NULL,
     fin_reservation TIMESTAMP NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE reservation IF NOT EXISTS (
 -- Table for Media
 -- Stores links to photos and videos for each location.
 -- =================================================================
-CREATE TABLE medias IF NOT EXISTS (
+CREATE TABLE medias (
     id INT PRIMARY KEY AUTO_INCREMENT,
     lien VARCHAR(255) NOT NULL,
     emplacement_id INT NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE medias IF NOT EXISTS (
 -- Table for Testimonials/Reviews
 -- Stores user reviews and ratings for locations.
 -- =================================================================
-CREATE TABLE temoignages IF NOT EXISTS (
+CREATE TABLE temoignages (
     id INT PRIMARY KEY AUTO_INCREMENT,
     texte TEXT,
     vote INT,
